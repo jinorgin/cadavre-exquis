@@ -1,38 +1,79 @@
-.App {
-  text-align: center;
+.App{
+  width:100%;
+  min-height:100vh;
+  transition:all 200ms linear;
+
+  display: grid;
+  grid-template-columns: 1fr 2fr 2fr 1fr;
+  grid-template-rows: auto auto 1fr  auto;
+  grid-template-areas: 
+    "title title title title"
+    ". form form ."
+    ". lines lines ."
+    ". . . toggle"
+  ;
+}
+.App > h1{
+  grid-area:title;
+  font-size:2em;
+  text-align:center;
+  padding:1em;
+  background:#888;
+  margin:0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.App > ul{
+  grid-area: lines;
+  padding:0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.App > ul li{
+  list-style-type: none;
+  padding:0.5em 0;
+  font-size: 1.2em;
+}
+.App > ul.reading li{
+  display:inline;
+  padding-right:0.25em;
+  font-size:1.5em;
+}
+.App > ul.writing li{
+  color:#CCC;
+  opacity:0.7;
+}
+.App > div{
+  grid-area:toggle;
+  width:100%;
+  height:100%;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.App > div button{
+  width:100%;
+  height:100%;
+  display:block;
+  padding:1em;
+  border:none;
+  font-size:1.2em;
 }
 
-.App-link {
-  color: #61dafb;
+.App > form{
+  grid-area:form;
+  padding:1em 0;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+form input,
+form button,
+form li {
+  width:100%;
+  padding:0.5em 1em;
+  font-size:1.5em;
+  background:white;
+  margin:0.5em 0;
+  border:0.1em solid #999;
+  transition:all 200ms linear;
+  list-style-type: none;
+}
+
+form button:hover{
+  background:#ccc;
 }
